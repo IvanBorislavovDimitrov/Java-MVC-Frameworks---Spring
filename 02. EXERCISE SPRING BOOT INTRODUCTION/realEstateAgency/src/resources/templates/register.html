@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Estate Agency</title>
+    <link type="text/css" rel="stylesheet" href="/style/styles.css">
+</head>
+<body>
+<section>
+    <div id="roof">
+    </div>
+    <div id="building"></div>
+    <div id="offerManager">
+        <div id="regOffer">
+            <form th:method="post" th:action="@{/register}">
+                <h2>Reg offer</h2>
+                <input type="number" name="apartmentRent" placeholder="Rent price....">
+                <input type="text" name="apartmentType" placeholder="Apartment type...">
+                <input type="number" name="agencyCommission" placeholder="Commission rate...">
+                <button name="findOffer" class="button">Reg offer</button>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

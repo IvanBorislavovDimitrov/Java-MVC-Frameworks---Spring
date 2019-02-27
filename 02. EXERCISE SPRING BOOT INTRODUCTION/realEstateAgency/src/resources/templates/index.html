@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Estate Agency</title>
+    <link type="text/css" rel="stylesheet" href="/style/styles.css">
+</head>
+<body>
+<section>
+    <div id="roof">
+    </div>
+    <div id="building"></div>
+
+    <div class="my-border apartment" th:if="${offers.size() == 0}">
+        <span>There aren't any offers!</span>
+    </div>
+    <div th:unless="${offers.size() == 0}">
+        <div class="apartment">
+            <div th:each="offer : ${offers}">
+                <p th:text="'Rent: ' + ${offer.getApartmentRent()}"></p>
+                <p th:text="'Type: ' + ${offer.getApartmentType()}"></p>
+                <p th:text="'Comission: ' + ${offer.getAgencyCommission()}"></p>
+            </div>
+        </div>
+    </div>
+    <div id="offerManager">
+        <div id="regOffer">
+            <a href="/register" class="button">Reg Offer</a>
+        </div>
+        <div id="findOffer">
+            <a href="/find" class="button">Find Offer</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
