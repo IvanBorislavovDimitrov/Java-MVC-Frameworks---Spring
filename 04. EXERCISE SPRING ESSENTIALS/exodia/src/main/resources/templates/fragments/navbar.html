@@ -1,0 +1,33 @@
+<th:block th:fragment="navbar" xmlns:th="http://www.thymeleaf.org" lang="en">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-exodia rounded">
+        <a class="navbar-brand nav-link-white" href="/">EXODIA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+            </ul>
+            <ul class="navbar-nav">
+                <li th:if="${#session == null} or ${#session.getAttribute('logged_user') == null}" class="nav-item">
+                    <a class="nav-link nav-link-white active" th:href="@{/}">Home</a>
+                </li>
+                <li th:if="${#session != null} and ${#session.getAttribute('logged_user') != null}" class="nav-item">
+                    <a class="nav-link nav-link-white active" th:href="@{/home}">Home</a>
+                </li>
+                <li th:if="${#session == null} or ${#session.getAttribute('logged_user') == null}" class="nav-item">
+                    <a class="nav-link nav-link-white active" th:href="@{/login}">Login</a>
+                </li>
+                <li th:if="${#session != null} and ${#session.getAttribute('logged_user') != null}" class="nav-item">
+                    <a class="nav-link nav-link-white active" th:href="@{/schedule}">Schedule</a>
+                </li>
+                <li th:if="${#session == null} or ${#session.getAttribute('logged_user') == null}" class="nav-item">
+                    <a class="nav-link nav-link-white active" th:href="@{/register}">Register</a>
+                </li>
+                <li th:if="${#session != null} and ${#session.getAttribute('logged_user') != null}" class="nav-item">
+                    <a class="nav-link nav-link-white active" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</th:block>
