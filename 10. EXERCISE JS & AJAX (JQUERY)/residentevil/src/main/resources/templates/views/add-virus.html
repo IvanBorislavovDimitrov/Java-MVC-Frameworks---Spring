@@ -1,0 +1,101 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <form class="mx-auto w-75 mt-3" th:action="@{/viruses/add}" method="post" th:object="${virus}">
+        <h3>Spread a new virus!</h3>
+        <fieldset>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control"
+                       th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}" id="name" name="name"
+                       th:value="*{name}">
+                <div class="invalid-feedback" th:each="error : ${#fields.errors('name')}" th:text="${error}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="sideEffect">Side Effect</label>
+                <input type="text" class="form-control" id="sideEffect" name="sideEffects">
+            </div>
+            <div class="form-group">
+                <label for="creator">Creator</label>
+                <input type="text" class="form-control" id="creator" name="creator">
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="isDeadly">
+                    Is Deadly?
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="isCurable">
+                    Is Curable?
+                </label>
+            </div>
+            <fieldset class="form-group mt-1">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="mutation" id="zombie"
+                               value="option1">
+                        ZOMBIE
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="mutation" id="t078tyrant"
+                               value="option2">
+                        T_078_TYRANT
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="mutation" id="giantspider"
+                               value="option2">
+                        GIANT_SPIDER
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="savehumanity" id="savehumanity"
+                               value="option3" disabled="">
+                        save humanity
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="turnoverRate">Turnover Rate</label>
+                <input type="number" class="form-control" id="turnoverRate" name="turnoverRate">
+            </div>
+            <div class="form-group">
+                <label for="hoursUntilTurn">Hours Until Turn</label>
+                <input type="number" class="form-control" id="hoursUntilTurn" name="hoursUntilTurn">
+            </div>
+            <div class="form-group">
+                <label for="magnitude">Magnitude</label>
+                <select class="form-control" id="magnitude" name="magnitude">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="releaseDate">Release Date</label>
+                <input type="date" class="form-control" id="releaseDate" name="releasedOn">
+            </div>
+            <div class="form-group">
+                <label for="affectedCapitals">Affected Capitals</label>
+                <select multiple="" class="form-control" id="affectedCapitals" name="affectedCapitals">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </fieldset>
+        <input type="submit" class="btn btn-primary" value="Add virus"/>
+    </form>
+
+</div>

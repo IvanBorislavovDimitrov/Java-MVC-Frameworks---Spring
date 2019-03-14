@@ -1,0 +1,25 @@
+<div class="mx-auto w-75 mt-3" xmlns:th="http://www.thymeleaf.org">
+    <h3>All Viruses</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Magnitude</th>
+            <th scope="col">Released On</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="virus,iter : ${viruses}" >
+            <th scope="row" th:text="${iter.count}"></th>
+            <td th:text="${virus.name}"></td>
+            <td th:text="${virus.magnitude}"></td>
+            <td th:text="${#dates.format(virus.releasedOn, 'dd-MMM-yyyy')}"></td>
+            <td><a th:href="@{/viruses/edit(id=${virus.id})}" class="btn btn-success">Edit</a></td>
+            <td><a th:href="@{/viruses/delete(id=${virus.id})}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
