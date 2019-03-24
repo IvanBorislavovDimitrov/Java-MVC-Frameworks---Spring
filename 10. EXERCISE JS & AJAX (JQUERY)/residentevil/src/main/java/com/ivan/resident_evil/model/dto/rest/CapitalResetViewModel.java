@@ -1,23 +1,12 @@
-package com.ivan.resident_evil.model;
+package com.ivan.resident_evil.model.dto.rest;
 
-import javax.persistence.*;
+public class CapitalResetViewModel {
 
-@Entity
-@Table(name = "capitals")
-public class Capitals extends BaseEntity {
-
-    @Column(name = "name", nullable = false)
     private String name;
 
-    @Basic
     private double latitude;
 
-    @Basic
     private double longitude;
-
-    @ManyToOne
-    @JoinColumn(name = "virus_id", referencedColumnName = "id")
-    private Virus virus;
 
     public String getName() {
         return name;
@@ -42,13 +31,4 @@ public class Capitals extends BaseEntity {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-
-    public Virus getVirus() {
-        return virus;
-    }
-
-    public void setVirus(Virus virus) {
-        this.virus = virus;
-    }
 }
-

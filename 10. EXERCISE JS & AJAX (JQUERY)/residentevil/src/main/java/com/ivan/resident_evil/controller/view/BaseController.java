@@ -1,4 +1,4 @@
-package com.ivan.resident_evil.controller;
+package com.ivan.resident_evil.controller.view;
 
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;

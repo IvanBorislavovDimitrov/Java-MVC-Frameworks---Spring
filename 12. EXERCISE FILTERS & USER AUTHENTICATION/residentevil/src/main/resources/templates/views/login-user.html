@@ -1,0 +1,19 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <form class="mx-auto w-75 mt-3" th:action="@{/users/login}" th:method="post" th:object="${user}">
+        <h3>Login</h3>
+        <fieldset>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" type="text" class="form-control" name="username"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password"/>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input type="submit" class="btn btn-primary" value="Login"/>
+            </div>
+        </fieldset>
+    </form>
+
+</div>

@@ -4,12 +4,17 @@ public class Constants {
 
     private static final String VIEWS = "views";
 
-    private static final String REDIRECT = "redirect:";
+    public static final String EDIT_VIRUS = VIEWS + "/edit-virus";
 
     public static final String INDEX = VIEWS + "/index";
 
     public static final String ADD_VIRUS = VIEWS + "/add-virus";
 
-    public static final String REDIRECT_INDEX = REDIRECT + "/";
+    public static final String ALL_VIRUSES = VIEWS + "/all-viruses";
 
+    public static final String REDIRECT_INDEX = "";
+
+    public static final String VIRUSES = "viruses";
+
+    public static final String CAPITALS = "capitals";
 }

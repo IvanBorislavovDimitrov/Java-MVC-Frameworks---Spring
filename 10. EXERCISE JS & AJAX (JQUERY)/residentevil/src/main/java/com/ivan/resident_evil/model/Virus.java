@@ -14,13 +14,13 @@ import java.util.List;
 @Table(name = "viruses")
 public class Virus extends BaseEntity {
 
-    @Column(name = "name", nullable = false, length = 10)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "description", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "sideEffects", nullable = false)
+    @Column(name = "sideEffects")
     private String sideEffects;
 
     @Column(name = "creator")
@@ -33,7 +33,7 @@ public class Virus extends BaseEntity {
     @Column(name = "is_curable")
     private boolean isCurable;
 
-    @Column(name = "mutation", nullable = false)
+    @Column(name = "mutation"   )
     private Mutation mutation;
 
     @Column(name = "turnover_rate")
@@ -48,8 +48,8 @@ public class Virus extends BaseEntity {
     @Column(name = "released_on", nullable = false)
     private Date releasedOn;
 
-    @OneToMany(mappedBy = "virus", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Capitals.class)
-    private List<Capitals> capitals;
+    @OneToMany(mappedBy = "virus", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Capital.class)
+    private List<Capital> capitals;
 
     public Virus() {
         capitals = new ArrayList<>();
@@ -143,11 +143,11 @@ public class Virus extends BaseEntity {
         this.releasedOn = releasedOn;
     }
 
-    public List<Capitals> getCapitals() {
+    public List<Capital> getCapitals() {
         return capitals;
     }
 
-    public void setCapitals(List<Capitals> capitals) {
+    public void setCapitals(List<Capital> capitals) {
         this.capitals = capitals;
     }
 }
