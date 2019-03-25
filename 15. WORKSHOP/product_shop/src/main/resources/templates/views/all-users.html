@@ -1,0 +1,57 @@
+<body xmlns:th="http://www.thymeleaf.org">
+<div class="container-fluid">
+    <main class="mt-3">
+        <h1 class="text-center text-dark">All Users</h1>
+        <hr class="hr-2 bg-dark w-75">
+        <table class="table table-hover w-75 mx-auto">
+            <thead>
+            <tr class="row mx-auto">
+                <th class="col-md-2 text-center">#</th>
+                <th class="col-md-3 text-center">Username</th>
+                <th class="col-md-2 text-center">Email</th>
+                <th class="col-md-2 text-center">Roles</th>
+                <th class="col-md-3 text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr class="row mx-auto" th:each="user, i : ${users}">
+                <th class="col-md-2 text-center" th:text="${i.index}"></th>
+                <td class="col-md-3 text-center" th:text="${user.username}"></td>
+                <td class="col-md-2 text-center" th:text="${user.email}"></td>
+                <td class="col-md-2 text-center" th:text="${user.roles}"></td>
+                <td class="col-md-3 text-center">
+                    <div class="row">
+
+                        <form th:if="${#lists.contains(user.roles, 'MODERATOR') == false}"
+                              th:action="@{|/users/set-moderator/${user.id}|}" method="post"
+                              class="mx-1">
+                            <button class="btn btn-dark">MODERATOR</button>
+                        </form>
+
+                        <form th:if="${#lists.contains(user.roles, 'ADMIN') == false}"
+                              th:action="@{|/users/set-admin/${user.id}|}" method="post"
+                              class="mx-1">
+                            <button class="btn btn-dark">ADMIN</button>
+                        </form>
+
+                        <form th:if="${#lists.contains(user.roles, 'USER') == false}"
+                              th:action="@{|/users/set-user/${user.id}|}" method="post"
+                              class="mx-1">
+                            <button class="btn btn-dark">USER</button>
+                        </form>
+
+                    </div>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <hr class="hr-2 bg-dark">
+    </main>
+</div>
+
+<script>
+
+</script>
+
